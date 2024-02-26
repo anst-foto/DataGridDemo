@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
 using System.Runtime.CompilerServices;
 using DataGridDemo.Models;
 using MahApps.Metro.Controls;
@@ -57,6 +58,10 @@ public partial class MainWindow : MetroWindow, INotifyPropertyChanged
         };
         
         InitializeComponent();
+        
+        DataGrid.Items.SortDescriptions.Clear();
+        DataGrid.Items.SortDescriptions.Add(new SortDescription("Id", ListSortDirection.Descending));
+        DataGrid.Items.Refresh();
     }
     
     #region INotifyPropertyChanged
